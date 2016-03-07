@@ -1,0 +1,24 @@
+# Xcode
+.DS_Store
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+.idea/
+Carthage/
+kaipai2.xcodeproj/project.xcworkspace/xcuserdata/
+textures-src
+texture-output
+Pods
+kaipai2/tv.kaipai.kaipai 2016-01-04 17.46.29.475.xcappdata
