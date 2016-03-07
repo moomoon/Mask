@@ -1,0 +1,12 @@
+kernel vec4 coreImageKernel(__sample background, float threshold) {
+  vec4 c;
+  float value;
+  c = unpremultiply(background);
+  if (c.r < threshold) {
+    value = 1.0 - (threshold - c.r) / threshold;
+    return vec4(value, value, value, 1.0);
+  } else {
+    return vec4(1.0);
+  }
+
+}

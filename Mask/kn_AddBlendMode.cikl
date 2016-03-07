@@ -1,0 +1,9 @@
+kernel vec4 coreImageKernel(__sample s0, __sample s1) {
+  vec4 i0;
+  vec4 i1;
+  vec4 o;
+  i0 = unpremultiply(s0);
+  i1 = unpremultiply(s1);
+  o = i0 + i1;
+  return  premultiply(o);
+}

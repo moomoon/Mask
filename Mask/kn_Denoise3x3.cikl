@@ -1,0 +1,46 @@
+kernel vec4 coreImageKernel(sampler src) {
+float threshold;
+float count;
+vec2 d;
+
+threshold = 0.24;
+count = 0.0;
+
+d = samplerCoord(src);
+
+
+if (unpremultiply(sample(src, d + samplerTransform(src, vec2(-1.0, -1.0)))).r > threshold) {
+count = count + 1.0;
+}
+if (unpremultiply(sample(src, d + samplerTransform(src, vec2(0.0, -1.0)))).r > threshold) {
+count = count + 1.0;
+}
+if (unpremultiply(sample(src, d + samplerTransform(src, vec2(1.0, -1.0)))).r > threshold) {
+count = count + 1.0;
+}
+
+if (unpremultiply(sample(src, d + samplerTransform(src, vec2(-1.0, 0.0)))).r > threshold) {
+count = count + 1.0;
+}
+
+if (unpremultiply(sample(src, d + samplerTransform(src, vec2(1.0, 0.0)))).r > threshold) {
+count = count + 1.0;
+}
+
+if (unpremultiply(sample(src, d + samplerTransform(src, vec2(-1.0, 1.0)))).r > threshold) {
+count = count + 1.0;
+}
+if (unpremultiply(sample(src, d + samplerTransform(src, vec2(0.0, 1.0)))).r > threshold) {
+count = count + 1.0;
+}
+if (unpremultiply(sample(src, d + samplerTransform(src, vec2(1.0, 1.0)))).r > threshold) {
+count = count + 1.0;
+}
+
+if (count > 2.0 && sample(src, d).r > threshold) {
+return vec4(1.0);
+} else {
+return vec4(0.0);
+}
+
+}
